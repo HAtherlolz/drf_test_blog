@@ -3,7 +3,7 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 
 
-from .models import Posts, Comment
+from .models import Posts, Comment, User
 
 
 class PaginationPosts(PageNumberPagination):
