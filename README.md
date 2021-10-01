@@ -11,25 +11,39 @@ pip install -r /path/to/requirements.txt
 ```
 
 ## Usage
-
+##Set your config there
 ```python
-## Settings.py
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'dbname',
-#         'USER': 'username',
-#         'PASSWORD': 'password',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
+#Settings.py
 
-##Console Command
-#python manage.py makemigrations
-#python manage.py migrate
-# python manage.py createsuperuser
-# python manage.py runserver:port
+SECRET_KEY = env("SECRET_KEY")
+
+ DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = env('EMAIL_LOGIN')
+EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD')
+EMAIL_PORT = 587
+```
+
+#After run console commands
+```bash
+
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver:port
+
+```
 
 
 ```
