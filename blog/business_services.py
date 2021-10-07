@@ -1,12 +1,18 @@
+import logging
+
+
 from django.http import Http404
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status
-
 from rest_framework.response import Response
+
 
 from .models import *
 from .serializer import PostsSerializer
 from .service import PaginationPosts
+
+
+logger = logging.getLogger(__name__)
 
 
 def create_object(request, serializer_class):
@@ -14,16 +20,6 @@ def create_object(request, serializer_class):
     serializer.is_valid(raise_exception=True)
     serializer.save()
     return Response(serializer.data)
-
-
-def get_list_objects(model, permission, filter, serializer):
-    queryset = model.objects.all()
-    serializer_class = serializer
-    filter_backends = (DjangoFilterBackend,)
-    filterset_class = filter
-    pagination_class = PaginationPosts
-    permission_classes = [permission]
-    return queryset
 
 
 def _get_object(pk, model):
@@ -47,6 +43,7 @@ def update_object(pk, request, model, serializer_class):
             serializer.save()
             return Response(serializer.data)
         else:
+            logger.info('Attempt to interact without authorization')
             return Response({"Permission Denied"}, status=status.HTTP_400_BAD_REQUEST)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -57,4 +54,5 @@ def delete_object(request, pk, model):
         target_delete.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
     else:
+        logger.info('Attempt to interact without authorization')
         return Response({"Permission Denied"}, status=status.HTTP_400_BAD_REQUEST)

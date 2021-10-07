@@ -1,1 +1,1 @@
-blog/__pycache__/admin.cpython-38.pyc, blog/__pycache__/models.cpython-38.pyc, blog/__pycache__/serializer.cpython-38.pyc, blog/__pycache__/service.cpython-38.pyc, blog/__pycache__/urls.cpython-38.pyc, blog/__pycache__/views.cpython-38.pyc, test_blog/.env, test_blog/__pycache__/urls.cpython-38.pyc, blog/migrations/0004_auto_20211001_1342.py, blog/migrations/__pycache__/0004_auto_20211001_1342.cpython-38.pyc
+blog/__pycache__ test_blog/__pycache__ test_blog/.env blog/migrations

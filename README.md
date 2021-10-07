@@ -4,7 +4,7 @@ Django is a high-level Python web framework that encourages rapid development an
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install requirements.
 
 ```bash
 pip install -r /path/to/requirements.txt
