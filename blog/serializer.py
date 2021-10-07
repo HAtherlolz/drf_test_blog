@@ -38,6 +38,7 @@ class UserSerializer(serializers.ModelSerializer):
     followers = FollowersSerializer(many=True, read_only=True)
 
     class Meta:
+        ref_name = "user"
         model = User
         fields = ['id', 'email', 'name', 'following', 'followers']
         extra_kwargs = {'password': {'write_only': True}}

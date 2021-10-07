@@ -77,4 +77,4 @@ class Comment(models.Model):
     comment_text = models.CharField("article's comments", max_length=500)
 
     def __str__(self):
-        return self.post
+        return str(self.post)
