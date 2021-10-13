@@ -14,7 +14,7 @@ from .models import Posts, Comment, UserFollowing, User
 from .service import PostFilter, CommentFilter, PaginationPosts
 from .business_services import get_object_detail, update_object, delete_object, create_object
 
-
+import datetime
 class PostsCreateView(APIView):
 
     permission_classes = [IsAuthenticated]
@@ -33,6 +33,8 @@ class PostsListView(ListAPIView):
 
 
 class PostDetailView(APIView):
+
+    permission_classes = [AllowAny]
 
     def get(self, request, pk):
         return get_object_detail(request, pk, Posts, PostsSerializer)
@@ -64,6 +66,8 @@ class CommentsListView(ListAPIView):
 
 
 class CommentDetailView(APIView):
+
+    permission_classes = [AllowAny]
 
     def get(self, request, pk):
         return get_object_detail(request, pk, Comment, CommentSerializer)

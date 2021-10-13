@@ -1,1 +1,1 @@
-blog/__pycache__ test_blog/__pycache__ test_blog/.env blog/migrations
+blog/__pycache__ test_blog/__pycache__ celerybeat-schedule.bak celerybeat-schedule.dat celerybeat-schedule.dir notifications/__pycache__ test_blog/.env
